@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import mongoose from 'mongoose';
 import slugify from 'slugify';
 
@@ -14,7 +15,7 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  images: [String],
+  image: String,
   slug: String,
 });
 

@@ -7,4 +7,8 @@ server.use(express.json());
 databaseConfig();
 Router(server);
 
+server.use((err, req, res, next) => {
+  console.log(err);
+});
+
 export default server;
