@@ -1,5 +1,6 @@
 import productService from '../services/product';
 import csvHanlder from '../helpers/csv';
+import catchAsync from '../helpers/catchAsync';
 
 export const createProduct = async (req, res, next) => {
   const product = await productService().create(req.body, req.file);
@@ -12,17 +13,10 @@ export const createProduct = async (req, res, next) => {
   });
 };
 
-export const createFromCsv = async (req, res, next) => {
+export const createFromCsv = catchAsync(async (req, res, next) => {
   const productData = await csvHanlder(req.file);
-  const products = await productService().createFromCsv(productData);
-  res.status(201).json({
-    status: 'success',
-    error: products.error,
-    data: {
-      products: products.body,
-    },
-  });
-};
+  const response = await productService().createFromCsv(productData);
+});
 
 export const getProducts = async (req, res, next) => {
   const products = await productService().getAll();

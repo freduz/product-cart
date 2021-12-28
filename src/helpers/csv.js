@@ -11,8 +11,8 @@ export default async (csvFile) => {
       const csvProduct = {};
       [
         csvProduct.title,
-        csvProduct.quantity,
         csvProduct.price,
+        csvProduct.quantity,
         csvProduct.image,
       ] = Object.values(product);
       csvProducts.push(csvProduct);

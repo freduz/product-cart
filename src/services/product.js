@@ -13,12 +13,17 @@ export default () => ({
   },
 
   async createFromCsv(productData) {
-    try {
-      const product = await Product.create(productData);
-      return { error: false, body: product };
-    } catch (err) {
-      console.log(err);
+    const errorData = [];
+    const resultData = [];
+    for (let index = 0; index < productData.length; index++) {
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        resultData.push(await Product.create(productData[index]));
+      } catch (err) {
+        errorData.push(productData[index]);
+      }
     }
+    if (errorData) throw Error(errorData);
   },
 
   async getAll() {
