@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import slugify from 'slugify';
 
 const productSchema = new mongoose.Schema({
@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema({
   },
   image: String,
   slug: String,
+  uploadedBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 productSchema.pre('save', function (next) {
