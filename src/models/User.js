@@ -37,6 +37,11 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Please provide the country code'],
   },
   userImage: String,
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
+  },
 });
 
 export default mongoose.model('User', userSchema);
