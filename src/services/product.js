@@ -1,10 +1,11 @@
+/* eslint-disable no-param-reassign */
 import Product from '../models/Product';
 
 export default () => ({
   async create(productData, imageFile) {
     try {
-      productData.image = imageFile.filename;
-      console.log(productData);
+      productData.image = imageFile ? imageFile.filename : '';
+
       const product = await Product.create(productData);
       return { error: false, body: product };
     } catch (err) {
@@ -17,7 +18,6 @@ export default () => ({
     const resultData = [];
     for (let index = 0; index < productData.length; index++) {
       try {
-        // eslint-disable-next-line no-await-in-loop
         resultData.push(await Product.create(productData[index]));
       } catch (err) {
         errorData.push(productData[index]);

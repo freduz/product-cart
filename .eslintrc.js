@@ -5,5 +5,10 @@ module.exports = {
   },
   extends: ['airbnb-base'],
   plugins: ['prettier'],
-  rules: {},
+  rules: {
+    'eslint-disable-next-line': 'off',
+    'no-await-in-loop': 'off',
+    'no-plusplus': 'off',
+    'consistent-return': 'off',
+  },
 };

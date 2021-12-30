@@ -2,7 +2,7 @@ import User from '../models/User';
 
 export default () => ({
   async create(req) {
-    req.body.userImage = req.file.filename;
+    req.body.userImage = req.file ? req.file.filename : '';
     const user = await User.create(req.body);
     return user;
   },

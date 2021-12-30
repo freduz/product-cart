@@ -26,6 +26,7 @@ export const userValidate = async (req, res, next) => {
       .required(),
     countryCode: Joi.string().required(),
     password: Joi.string().min(6).max(8).required(),
+    confirmPassword: Joi.string().required().valid(Joi.ref('password')),
   });
   const { error } = userSchema.validate(req.body);
   if (error) return next(error);
