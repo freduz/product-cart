@@ -30,8 +30,8 @@ server.use((req, res, next) => {
       totals: 0.0,
       formattedTotals: '',
     };
-    next();
   }
+  next();
 });
 
 server.use(express.json());

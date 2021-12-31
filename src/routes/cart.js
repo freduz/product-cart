@@ -1,9 +1,10 @@
 import express from 'express';
-import { addToCart } from '../controllers/cart';
+import { addToCart, getCartItems } from '../controllers/cart';
 
 const router = express.Router();
 
 export default () => {
-  router.post('/add-cart/:id', addToCart);
+  router.post('/:id', addToCart);
+  router.get('/', getCartItems);
   return router;
 };

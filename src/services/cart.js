@@ -1,5 +1,6 @@
 class Cart {
   static addToCart(product = null, qty = 1, cart) {
+    console.log(qty);
     if (!this.inCart(product.id, cart)) {
       const format = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -9,11 +10,12 @@ class Cart {
         id: product.id,
         title: product.title,
         price: product.price,
-        qty,
+        qty: qty,
         image: product.image,
         formattedPrice: format.format(product.price),
       };
       cart.items.push(prod);
+      console.log('dfggdgdgdfg');
       this.calculateTotals(cart);
     }
   }
@@ -57,6 +59,7 @@ class Cart {
 
   static inCart(productID = 0, cart) {
     let found = false;
+
     cart.items.forEach((item) => {
       if (item.id === productID) {
         found = true;
@@ -74,6 +77,7 @@ class Cart {
 
       cart.totals += amount;
     });
+    console.log(cart);
     this.setFormattedTotals(cart);
   }
 
@@ -86,9 +90,10 @@ class Cart {
   }
 
   static setFormattedTotals(cart) {
-    let format = new Intl.NumberFormat(config.locale.lang, {
+    console.log(cart);
+    let format = new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: config.locale.currency,
+      currency: 'INR',
     });
     let totals = cart.totals;
     cart.formattedTotals = format.format(totals);

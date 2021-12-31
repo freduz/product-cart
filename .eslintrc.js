@@ -10,5 +10,6 @@ module.exports = {
     'no-await-in-loop': 'off',
     'no-plusplus': 'off',
     'consistent-return': 'off',
+    'no-multi-assign': 'off',
   },
 };
