@@ -12,6 +12,10 @@ export const signUp = catchAsync(async (req, res) => {
   });
 });
 
-export const login = catchAsync(async (req, res) => {
-  await authService().login(req);
+export const login = catchAsync(async (req, res, next) => {
+  const response = await authService().login(req, next);
+  res.status(200).json({
+    status: 'success',
+    token: response.token,
+  });
 });

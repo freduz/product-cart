@@ -2,9 +2,10 @@
 import Product from '../models/Product';
 
 export default () => ({
-  async create(productData, imageFile) {
+  async create(productData, imageFile, user) {
     try {
       productData.image = imageFile ? imageFile.filename : '';
+      productData.uploadedBy = user.id;
 
       const product = await Product.create(productData);
       return { error: false, body: product };

@@ -1,6 +1,6 @@
 import csvtojson from 'csvtojson';
 
-export default async (csvFile) => {
+export default async (csvFile, user) => {
   try {
     const productArray = await csvtojson().fromFile(
       `${csvFile.destination}/${csvFile.filename}`
@@ -15,6 +15,7 @@ export default async (csvFile) => {
         csvProduct.quantity,
         csvProduct.image,
       ] = Object.values(product);
+      csvProduct.uploadedBy = user.id;
       csvProducts.push(csvProduct);
     });
     return csvProducts;

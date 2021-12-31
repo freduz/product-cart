@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: 6,
     required: [true, 'Please provide the password'],
+    select: false,
   },
   mobile: {
     type: String,
@@ -38,10 +39,14 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Please provide the country code'],
   },
   userImage: String,
+
   role: {
     type: String,
     enum: ['user', 'admin'],
     default: 'user',
+  },
+  passwordChangedAt: {
+    type: Date,
   },
 });
 
@@ -50,5 +55,22 @@ userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 12);
   next();
 });
+
+userSchema.methods.checkPassword = async function (
+  plainPassword,
+  hashedPassword
+) {
+  return await bcrypt.compare(plainPassword, hashedPassword);
+};
+
+userSchema.methods.passwordChangedAfter = function (JWTTimeStamp) {
+  if (this.passwordChangedAt) {
+    const changedTimeStamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    return JWTTimeStamp < changedTimeStamp;
+  }
+};
 
 export default mongoose.model('User', userSchema);

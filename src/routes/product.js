@@ -9,6 +9,7 @@ import {
 } from '../controllers/product';
 import { productValidate } from '../middlewares/bodyValidator';
 import FileUploadHandler from '../helpers/fileUpload';
+import { protectedRoute } from '../middlewares/authMiddleware';
 
 const upload = new FileUploadHandler(
   'product',
@@ -23,14 +24,16 @@ const router = express.Router();
 export default () => {
   router
     .route('/')
-    .post(upload.single('image'), createProduct)
+    .post(protectedRoute, upload.single('image'), createProduct)
     .get(getProducts);
-  router.route('/csv-upload').post(csvUpload.single('csv'), createFromCsv);
+  router
+    .route('/csv-upload')
+    .post(protectedRoute, csvUpload.single('csv'), createFromCsv);
   router
     .route('/:id')
-    .delete(deleteProduct)
-    .get(getProduct)
-    .patch(updateProduct);
+    .delete(protectedRoute, deleteProduct)
+    .get(protectedRoute, getProduct)
+    .patch(protectedRoute, updateProduct);
 
   return router;
 };
