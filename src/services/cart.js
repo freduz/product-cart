@@ -15,8 +15,15 @@ class Cart {
         formattedPrice: format.format(product.price),
       };
       cart.items.push(prod);
-      console.log('dfggdgdgdfg');
+
       this.calculateTotals(cart);
+    } else {
+      cart.items.forEach((item) => {
+        if (item.id === product.id) {
+          item.qty += qty;
+          this.calculateTotals(cart);
+        }
+      });
     }
   }
 
