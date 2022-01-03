@@ -1,0 +1,12 @@
+{"level":"info","message":"User created!","user_email":"stijo@gmail.com","user_id":"61d29318fd09ba5bc5b193c1","user_name":"stijo"}
+info: Jan-03-2022 11:42:54: 	User created!
+info: Jan-03-2022 11:47:34: 	User created!
+    user_id: 61d294fe88ab2f554e0eb364,
+    user_name: stijo,
+    user_email: stijo@gmail.com
+error: Jan-03-2022 11:51:14: 	Error => MongoServerError: E11000 duplicate key error collection: product-cart.users index: username_1 dup key: { username: "stijo" }
+error: Jan-03-2022 12:19:53: 	No user found with this 61ce03bd8a9ac37261a61f23
+error: Jan-03-2022 12:27:33: 	No user found with this 61ce03bd8a9ac37261a61f25
+error: Jan-03-2022 12:28:13: 	No user found with this 61ce03bd8a9ac37261a61f25
+error: Jan-03-2022 12:31:45: 	Error => Error: No user found with this 61ce03bd8a9ac37261a61f23
+error: Jan-03-2022 12:33:04: 	Error: No user found with this 61ce03bd8a9ac37261a61f23

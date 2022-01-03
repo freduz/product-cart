@@ -1,0 +1,25 @@
+error: Jan-03-2022 08:18:14: 	this route is not yet defined
+info: Jan-03-2022 08:20:23: 	Server started and runing on port 3000
+info: Jan-03-2022 08:20:49: 	Server started and runing on port 3000
+info: Jan-03-2022 08:21:16: 	Server started and runing on port 3000
+info: Jan-03-2022 08:21:25: 	Server started and runing on port 3000
+info: Jan-03-2022 08:27:25: 	Server started and runing on port 3000
+info: Jan-03-2022 08:28:06: 	Server started and runing on port 3000
+info: Jan-03-2022 08:28:14: 	Server started and runing on port 3000
+info: Jan-03-2022 08:28:29: 	Server started and runing on port 3000
+info: Jan-03-2022 08:28:55: 	Server started and runing on port 3000
+info: Jan-03-2022 08:29:01: 	Server started and runing on port 3000
+info: Jan-03-2022 08:29:22: 	Server started and runing on port 3000
+info: Jan-03-2022 08:29:28: 	Server started and runing on port 3000
+info: Jan-03-2022 08:29:49: 	Server started and runing on port 3000
+info: Jan-03-2022 08:29:57: 	Server started and runing on port 3000
+info: Jan-03-2022 08:30:10: 	Server started and runing on port 3000
+info: Jan-03-2022 08:30:19: 	Server started and runing on port 3000
+info: Jan-03-2022 08:30:33: 	Server started and runing on port 3000
+info: Jan-03-2022 08:36:21: 	Server started and runing on port 3000
+info: Jan-03-2022 08:38:15: 	Server started and runing on port 3000
+error: Jan-03-2022 08:38:25: 	500 - function status(code) {
+  this.statusCode = code;
+  return this;
+} - Cast to ObjectId failed for value "61d26536f7967c88bae5fdcfs" (type string) at path "_id" for model "Product" - /api/v1/products/61d26536f7967c88bae5fdcfs - PATCH - ::ffff:127.0.0.1
+info: Jan-03-2022 08:45:31: 	Server started and runing on port 3000

@@ -1,8 +1,13 @@
 import userService from '../services/user';
 import catchAsync from '../helpers/catchAsync';
+import { userLogger } from '../utils/logger';
 
 export const createUser = catchAsync(async (req, res) => {
   const user = await userService().create(req);
+  userLogger.info(`User created!
+    user_id: ${user._id},
+    user_name: ${user.username},
+    user_email: ${user.email}`);
   res.status(201).json({
     status: 'success',
     data: {

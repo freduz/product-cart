@@ -3,15 +3,11 @@ import Product from '../models/Product';
 
 export default () => ({
   async create(productData, imageFile, user) {
-    try {
-      productData.image = imageFile ? imageFile.filename : '';
-      productData.uploadedBy = user.id;
+    productData.image = imageFile ? imageFile.filename : '';
+    productData.uploadedBy = user.id;
 
-      const product = await Product.create(productData);
-      return { error: false, body: product };
-    } catch (err) {
-      console.log(err);
-    }
+    const product = await Product.create(productData);
+    return { error: false, body: product };
   },
 
   async createFromCsv(productData) {
@@ -28,34 +24,26 @@ export default () => ({
   },
 
   async getAll() {
-    try {
-      const products = await Product.find();
-      return { error: false, body: products };
-    } catch (err) {}
+    const products = await Product.find();
+    return { error: false, body: products };
   },
 
   // eslint-disable-next-line consistent-return
   async getOne(id) {
-    try {
-      const product = await Product.findById(id);
-      return { error: false, body: product };
-    } catch (err) {}
+    const product = await Product.findById(id);
+    return { error: false, body: product };
   },
 
   async update(req) {
-    try {
-      const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-      });
-      return { error: false, body: product };
-    } catch (err) {}
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    return { error: false, body: product };
   },
 
   async delete(id) {
-    try {
-      await Product.findByIdAndDelete(id);
-      return { error: false, body: product };
-    } catch (err) {}
+    await Product.findByIdAndDelete(id);
+    return { error: false, body: product };
   },
 });

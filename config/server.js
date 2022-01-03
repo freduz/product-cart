@@ -39,5 +39,11 @@ databaseConfig();
 Router(server);
 
 server.use(errorHandler);
+server.all('*', (req, res, next) => {
+  res.status(400).json({
+    status: 'error',
+    message: 'This route is not yet defined',
+  });
+});
 
 export default server;
