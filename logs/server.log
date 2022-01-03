@@ -23,3 +23,4 @@ error: Jan-03-2022 08:38:25: 	500 - function status(code) {
   return this;
 } - Cast to ObjectId failed for value "61d26536f7967c88bae5fdcfs" (type string) at path "_id" for model "Product" - /api/v1/products/61d26536f7967c88bae5fdcfs - PATCH - ::ffff:127.0.0.1
 info: Jan-03-2022 08:45:31: 	Server started and runing on port 3000
+error: Jan-03-2022 18:21:51: 	This route /api/v1/signupf is not yet defined

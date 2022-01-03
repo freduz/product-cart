@@ -5,6 +5,7 @@ import Router from '../src/routes';
 import databaseConfig from './database';
 import errorHandler from '../src/helpers/errorHandler';
 import { DATABASE, DATABASE_PASSWORD, COOKIE_SECRET } from './env';
+import { serverLogger } from '../src/utils/logger';
 
 const DB = DATABASE.replace('<password>', DATABASE_PASSWORD);
 
@@ -40,6 +41,7 @@ Router(server);
 
 server.use(errorHandler);
 server.all('*', (req, res, next) => {
+  serverLogger.error(`This route ${req.url} is not yet defined`);
   res.status(400).json({
     status: 'error',
     message: 'This route is not yet defined',

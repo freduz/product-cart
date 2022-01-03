@@ -1,13 +1,19 @@
 /* eslint-disable no-param-reassign */
 import Product from '../models/Product';
+import { poductLogger, prodcutLogger } from '../utils/logger';
 
 export default () => ({
   async create(productData, imageFile, user) {
-    productData.image = imageFile ? imageFile.filename : '';
-    productData.uploadedBy = user.id;
+    try {
+      productData.image = imageFile ? imageFile.filename : '';
+      productData.uploadedBy = user.id;
 
-    const product = await Product.create(productData);
-    return { error: false, body: product };
+      const product = await Product.create(productData);
+      return { error: false, body: product };
+    } catch (err) {
+      poductLogger.error(err);
+      throw Error(err);
+    }
   },
 
   async createFromCsv(productData) {
@@ -17,6 +23,7 @@ export default () => ({
       try {
         resultData.push(await Product.create(productData[index]));
       } catch (err) {
+        prodcutLogger.error(err);
         errorData.push(productData[index]);
       }
     }
@@ -24,8 +31,12 @@ export default () => ({
   },
 
   async getAll() {
-    const products = await Product.find();
-    return { error: false, body: products };
+    try {
+      const products = await Product.find();
+      return { error: false, body: products };
+    } catch (err) {
+      throw Error(err);
+    }
   },
 
   // eslint-disable-next-line consistent-return
