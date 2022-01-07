@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import fetch from 'node-fetch';
 import Product from '../models/Product';
 import { prodcutLogger } from '../utils/logger';
 
