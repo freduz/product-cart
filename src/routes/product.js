@@ -6,6 +6,7 @@ import {
   deleteProduct,
   getProduct,
   updateProduct,
+  exportProduct,
 } from '../controllers/product';
 import { productValidate } from '../middlewares/bodyValidator';
 import FileUploadHandler from '../helpers/fileUpload';
@@ -22,6 +23,7 @@ const csvUpload = new FileUploadHandler('csv', 'csv').getMulter();
 const router = express.Router();
 
 export default () => {
+  router.route('/export').get(exportProduct);
   router
     .route('/')
     .post(protectedRoute, upload.single('image'), createProduct)

@@ -24,3 +24,23 @@ error: Jan-03-2022 08:38:25: 	500 - function status(code) {
 } - Cast to ObjectId failed for value "61d26536f7967c88bae5fdcfs" (type string) at path "_id" for model "Product" - /api/v1/products/61d26536f7967c88bae5fdcfs - PATCH - ::ffff:127.0.0.1
 info: Jan-03-2022 08:45:31: 	Server started and runing on port 3000
 error: Jan-03-2022 18:21:51: 	This route /api/v1/signupf is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/fonts/fontawesome/css/all.min.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/bootstrap.min.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/animate.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/owl.carousel.min.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/slick.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/flaticon.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/style.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/nouislider.min.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/textfield.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/checkbox.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/range-slider.css is not yet defined
+error: Jan-07-2022 15:38:55: 	This route /users_assets/css/vander/nice-select.css is not yet defined
+error: Jan-07-2022 15:42:30: 	This route /users_assets/js/vander/jquery-3.4.1.min.js is not yet defined
+error: Jan-07-2022 15:42:31: 	This route /users_assets/js/vander/jquery-migrate-1.4.1.min.js is not yet defined
+error: Jan-07-2022 15:42:31: 	This route /users_assets/js/vander/popper.min.js is not yet defined
+error: Jan-07-2022 15:42:31: 	This route /users_assets/js/vander/owl.carousel.min.js is not yet defined
+error: Jan-07-2022 15:42:31: 	This route /users_assets/js/vander/bootstrap.min.js is not yet defined
+error: Jan-07-2022 15:42:32: 	This route /users_assets/img/logos/logo.png is not yet defined
+error: Jan-07-2022 15:42:32: 	This route /users_assets/js/map.js is not yet defined
+error: Jan-07-2022 15:42:32: 	This route /users_assets/js/vander/slick.min.js is not yet defined

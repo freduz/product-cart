@@ -57,3 +57,7 @@ export const updateProduct = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+export const exportProduct = catchAsync(async (req, res) => {
+  productService().exportData();
+});

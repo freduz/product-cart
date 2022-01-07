@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import Product from '../models/Product';
+import pdfGen from '../helpers/pdfGen';
 import { prodcutLogger } from '../utils/logger';
 
 export default () => ({
@@ -71,6 +72,15 @@ export default () => ({
     } catch (err) {
       prodcutLogger.error(err);
       throw Error(err);
+    }
+  },
+
+  async exportData() {
+    try {
+      const products = await Product.find();
+      pdfGen(products);
+    } catch (e) {
+      console.log(e);
     }
   },
 });
