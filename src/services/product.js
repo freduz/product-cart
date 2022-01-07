@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
+import fetch from 'node-fetch';
 import Product from '../models/Product';
-import { poductLogger, prodcutLogger } from '../utils/logger';
+import { prodcutLogger } from '../utils/logger';
 
 export default () => ({
   async create(productData, imageFile, user) {
@@ -11,7 +12,7 @@ export default () => ({
       const product = await Product.create(productData);
       return { error: false, body: product };
     } catch (err) {
-      poductLogger.error(err);
+      prodcutLogger.error(err);
       throw Error(err);
     }
   },
@@ -35,26 +36,42 @@ export default () => ({
       const products = await Product.find();
       return { error: false, body: products };
     } catch (err) {
+      prodcutLogger.error(err);
       throw Error(err);
     }
   },
 
   // eslint-disable-next-line consistent-return
   async getOne(id) {
-    const product = await Product.findById(id);
-    return { error: false, body: product };
+    try {
+      const product = await Product.findById(id);
+      return { error: false, body: product };
+    } catch (err) {
+      prodcutLogger.error(err);
+      throw Error(err);
+    }
   },
 
   async update(req) {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    return { error: false, body: product };
+    try {
+      const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+      });
+      return { error: false, body: product };
+    } catch (err) {
+      prodcutLogger.error(err);
+      throw Error(err);
+    }
   },
 
   async delete(id) {
-    await Product.findByIdAndDelete(id);
-    return { error: false, body: product };
+    try {
+      await Product.findByIdAndDelete(id);
+      return { error: false, body: null };
+    } catch (err) {
+      prodcutLogger.error(err);
+      throw Error(err);
+    }
   },
 });

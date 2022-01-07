@@ -1,4 +1,5 @@
 import csvtojson from 'csvtojson';
+import { prodcutLogger } from '../utils/logger';
 
 export default async (csvFile, user) => {
   try {
@@ -20,6 +21,6 @@ export default async (csvFile, user) => {
     });
     return csvProducts;
   } catch (err) {
-    console.log(err);
+    prodcutLogger.error(err);
   }
 };
